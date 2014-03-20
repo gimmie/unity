@@ -4,7 +4,7 @@
 void Login(const char *username)
 {
     NSString *user = [NSString stringWithUTF8String:username];
-    [[GMService sharedService] login:user];
+    [Gimmie login:user];
 }
 
 void Logout()
@@ -19,20 +19,15 @@ void UpdateGimmieCountry(const char *country)
 
 void ShowGimmieRewards()
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    UIViewController *rootController = application.keyWindow.rootViewController;
-    [GMRewardsViewController presentGimmieOnController:rootController];
+    [Gimmie showGimmieView];
 }
 
 void BindGimmieNotification() {
-    UIApplication *application = [UIApplication sharedApplication];
-    UIViewController *rootController = application.keyWindow.rootViewController;
-    [GMNotificationViewController showNotificationOnViewController:rootController];
-    [[GMNotificationViewController sharedController] setShowNotificationOnTop:YES];
+    [Gimmie start];
 }
 
 void TriggerEvent(const char *eventname)
 {
     NSString *event = [NSString stringWithUTF8String:eventname];
-    [[GMService sharedService] triggerEventName:event callback:nil];
+    [Gimmie trigger:event];
 }
