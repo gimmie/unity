@@ -41,3 +41,26 @@ To trigger event
 
     GimmieBinding.TriggerGimmieEvent("event_name");
 
+## Known Issues
+
+- Duplicated scribe library
+
+        UNEXPECTED TOP-LEVEL EXCEPTION:
+        java.lang.IllegalArgumentException: already added: Lorg/scribe/builder/api/Api;
+
+In plugin folder, remove scribe-(version).jar file because other library already has that in dependencies.
+
+- Duplicated Android Supported library
+
+        UNEXPECTED TOP-LEVEL EXCEPTION:
+        java.lang.IllegalArgumentException: already added: Landroid/support/v4/hardware/display/DisplayManagerCompat;
+
+In plugin folder, remove android-support-v4.jar file because other library already has that in dependencies.
+
+- Missing Sherlock resources
+
+        /path/in/game/gimmie_Android_SDK_Unity/res/values/gm__styles.xml:4: error: Error retrieving parent for item: No resource found that matches the given name '@style/Theme.Sherlock.Light'.
+        /path/in/game/gimmie_Android_SDK_Unity/res/values/gm__styles.xml:5: error: Error: No resource found that matches the given name: attr 'actionBarStyle'.
+
+Copy all res and jar files including ActionBar Sherlock and ViewPager in plugins folder to your games.
+
