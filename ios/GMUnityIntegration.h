@@ -1,4 +1,5 @@
 extern "C" {
+    void AnonymousLogin();
     void Login(const char *username);
     void Logout();
     void UpdateGimmieCountry(const char *country);

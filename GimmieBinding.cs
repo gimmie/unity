@@ -4,18 +4,20 @@ using System.Runtime.InteropServices;
 
 public class GimmieBinding : MonoBehaviour {
 	#if UNITY_IPHONE
+  [DllImport ("__Internal")]
+  private static extern void AnonymousLogin();
 	[DllImport ("__Internal")]
-	private static extern void UpdateGimmieUser(string username);
+	private static extern void Login(string username);
 	[DllImport ("__Internal")]
-	private static extern void RemoveGimmieUser();
+	private static extern void Logout();
+	[DllImport ("__Internal")]
+	private static extern void UpdateGimmieCountry(string country);
 	[DllImport ("__Internal")]
 	private static extern void ShowGimmieRewards();
 	[DllImport ("__Internal")]
 	private static extern void BindGimmieNotification();
 	[DllImport ("__Internal")]
 	private static extern void TriggerEvent(string eventname);
-	[DllImport ("__Internal")]
-	private static extern void UpdateGimmieCountry(string country);
 	#endif
 
 	public static void initGimmie(){
@@ -25,6 +27,7 @@ public class GimmieBinding : MonoBehaviour {
 		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
 		BindGimmieNotification();
+    AnonymousLogin();
 		#endif
 		
 		#if UNITY_ANDROID
@@ -34,9 +37,8 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
 		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
 		service.Call("updateContext", activity);
+    service.Call("login");
 		#endif
-		
-		Login("test");
 	}
 	
 	public static void Login(string user) {
@@ -44,8 +46,7 @@ public class GimmieBinding : MonoBehaviour {
 
 		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
-		BindGimmieNotification();
-		UpdateGimmieUser(user);
+		Login(user);
 		#endif
 		
 		#if UNITY_ANDROID
@@ -56,9 +57,24 @@ public class GimmieBinding : MonoBehaviour {
 		
 		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
 		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
-		service.Call ("login", user);
+		service.Call ("loginAndTransferFromGuest", user, "", "");
 		#endif
 	}
+
+  public static void Logout() {
+#if UNITY_IPHONE
+    Logout();
+#endif
+
+#if UNITY_ANDROID
+		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
+		
+		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
+		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
+		service.Call ("logout");
+#endif
+  }
 	
 	public static void UpdateCountry(string countryCode) {
 		#if UNITY_IPHONE

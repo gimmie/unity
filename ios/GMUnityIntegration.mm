@@ -1,6 +1,11 @@
 #import "Gimmie.h"
 #import "GMUnityIntegration.h"
 
+void AnonymousLogin()
+{
+    [Gimmie loginWithGenerateID];
+}
+
 void Login(const char *username)
 {
     NSString *user = [NSString stringWithUTF8String:username];
@@ -31,3 +36,4 @@ void TriggerEvent(const char *eventname)
     NSString *event = [NSString stringWithUTF8String:eventname];
     [Gimmie trigger:event];
 }
+
