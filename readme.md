@@ -31,6 +31,12 @@ Call the following to bind Gimmie to each new context, for example in Star():
         GimmieBinding.initGimmie();
     }
 
+After init Gimmie it will automatically login user with `guest:randomid` which is anonymous user. Anonymous user is the same as
+normal user, it can earn points and redeem but it also can transfer points to other user. To transfer the points, call `Login`
+with your internal user id and points will get merge.
+
+To check is user anonymous, call `Gimmie.IsAnonymousUser()`.
+
 ## Showing rewards catalog and trigger events
 
 To show rewards catalog on any button add below code to Unity logic file.

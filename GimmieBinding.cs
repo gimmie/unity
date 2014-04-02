@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Runtime.InteropServices;
 
 public class GimmieBinding : MonoBehaviour {
 	#if UNITY_IPHONE
-  [DllImport ("__Internal")]
-  private static extern void AnonymousLogin();
+	[DllImport ("__Internal")]
+	private static extern void AnonymousLogin();
+	[DllImport ("__Internal")]
+	private static extern bool NativeIOSIsAnonymous();
 	[DllImport ("__Internal")]
 	private static extern void Login(string username);
 	[DllImport ("__Internal")]
@@ -27,7 +29,7 @@ public class GimmieBinding : MonoBehaviour {
 		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
 		BindGimmieNotification();
-    AnonymousLogin();
+		AnonymousLogin();
 		#endif
 		
 		#if UNITY_ANDROID
@@ -37,7 +39,7 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
 		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
 		service.Call("updateContext", activity);
-    service.Call("login");
+		service.Call("login");
 		#endif
 	}
 	
@@ -61,20 +63,36 @@ public class GimmieBinding : MonoBehaviour {
 		#endif
 	}
 
-  public static void Logout() {
-#if UNITY_IPHONE
-    Logout();
-#endif
+	public static void Logout() {
+		#if UNITY_IPHONE
+		Logout();
+		#endif
 
-#if UNITY_ANDROID
+		#if UNITY_ANDROID
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 		
 		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
 		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
 		service.Call ("logout");
-#endif
-  }
+		#endif
+	}
+
+	public static bool IsAnonymousUser() {
+		#if UNITY_IPHONE
+		return NativeIOSIsAnonymous();
+		#endif
+
+		#if UNITY_ANDROID
+		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
+		
+		AndroidJavaClass gimmie = new AndroidJavaClass("com.gimmie.Gimmie");
+		AndroidJavaObject service = gimmie.CallStatic<AndroidJavaObject>("getInstance", activity);
+		String user = service.Call<String> ("getUser");
+		return user.StartsWith("guest:", true, null);
+		#endif
+	}
 	
 	public static void UpdateCountry(string countryCode) {
 		#if UNITY_IPHONE

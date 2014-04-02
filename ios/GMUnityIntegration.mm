@@ -17,6 +17,12 @@ void Logout()
     [[GMService sharedService] logout];
 }
 
+bool NativeIOSIsAnonymous()
+{
+    NSString *user = [GMService sharedService].user;
+    return [user hasPrefix:@"guest:"];
+}
+
 void UpdateGimmieCountry(const char *country)
 {
     [GMService sharedService].country = [NSString stringWithUTF8String: country];
