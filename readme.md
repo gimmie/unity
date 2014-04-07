@@ -13,8 +13,8 @@ Sample project structures
     Assets
         Plugins
             Android
+                Gimmie_Android_SDK
                 AndroidManifest.xml
-                    Gimmie_Android_SDK
                 GimmieBinding.cs
 
 ## iOS
