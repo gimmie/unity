@@ -130,4 +130,7 @@ public class GimmieBinding : MonoBehaviour {
 		components.CallStatic("triggerEvent", eventName);
 		#endif
 	}
+
+  public void HandleNeedLogin(string message) {
+  }
 }

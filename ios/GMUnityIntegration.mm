@@ -1,6 +1,16 @@
 #import "Gimmie.h"
 #import "GMUnityIntegration.h"
 
+void HandleGuestLoginNotification()
+{
+  [[NSNotificationCenter defaultCenter] addObserverForName:GMNeedLoginNotification
+                                                    object:nil
+                                                     queue:nil
+                                                usingBlock:^(NSNotification *note) {
+                                                  UnitySendMessage("GimmieBinding", "HandleNeedLogin", "");
+                                                }];
+}
+
 void AnonymousLogin()
 {
     [Gimmie loginWithGenerateID];
