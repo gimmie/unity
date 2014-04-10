@@ -24,9 +24,6 @@ public class GimmieBinding : MonoBehaviour {
 	#endif
 
 	public static void initGimmie(){
-		// Binding Gimmie to Activity or View first.
-		AndroidJNI.AttachCurrentThread();
-		
 		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
 		BindGimmieNotification();
@@ -34,6 +31,7 @@ public class GimmieBinding : MonoBehaviour {
 		#endif
 		
 		#if UNITY_ANDROID
+		AndroidJNI.AttachCurrentThread();
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 		
@@ -45,8 +43,6 @@ public class GimmieBinding : MonoBehaviour {
 	}
 	
 	public static void Login(string user) {
-		// Login with given user id.
-
 		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
 		Login(user);
