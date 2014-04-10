@@ -43,14 +43,13 @@ public class GimmieBinding : MonoBehaviour {
 	}
 	
 	public static void Login(string user) {
-		#if UNITY_IPHONE
 		Debug.Log("Login to gimmie");
+
+		#if UNITY_IPHONE
 		Login(user);
 		#endif
 		
 		#if UNITY_ANDROID
-		Debug.Log("Login to Gimmie..");
-		
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 		
@@ -128,5 +127,6 @@ public class GimmieBinding : MonoBehaviour {
 	}
 
   public void HandleNeedLogin(string message) {
+    BroadcastMessage ("GimmieNeedLogin", null, SendMessageOptions.DontRequireReceiver);
   }
 }
