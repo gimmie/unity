@@ -125,8 +125,8 @@ public class GimmieBinding : MonoBehaviour {
 		components.CallStatic("triggerEvent", eventName);
 		#endif
 	}
-
-  public void HandleNeedLogin(string message) {
-    BroadcastMessage ("GimmieNeedLogin", null, SendMessageOptions.DontRequireReceiver);
-  }
+	
+	public void HandleNeedLogin(string message) {
+		BroadcastMessage ("GimmieNeedLogin", null, SendMessageOptions.DontRequireReceiver);
+	}
 }
