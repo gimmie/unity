@@ -8,9 +8,10 @@ Gimmie for Unity 3.5
 
 Sample project structures
 
-    Assets
-        Plugins
-            Android
+    Assets/
+        Plugins/
+            Android/
+            	res/
                 AndroidManifest.xml
                 GimmieBinding.cs
                 gimmie.jar
@@ -20,4 +21,4 @@ Sample project structures
                 pager indicator.jar
                 scribe-1.3.5.jar
                 tagsoup-1.2.1.jar
-            Your-other-plugins
+            Your-other-plugins/
