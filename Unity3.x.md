@@ -2,7 +2,7 @@ Gimmie for Unity 3.5
 ## Android
 
 - Download plugin
-- Extract and copy 'res/' and all files in 'libs'
+- Extract and copy 'res/' and all files in 'libs', and put into Plugins/Android/
 - Create a binding class, you can use a basic one here: [GimmieBinding.cs](GimmieBinding.cs).
 - Modify AndroidManifest.xml to include all the Gimmie declarations. See [example here](android/AndroidManifest.xml).
 
