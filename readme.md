@@ -26,6 +26,7 @@ Sample project structures
  - CoreTelephony.framework
  - Security.framework
  - libicucore.dylib
+- Add `Gimmie` type `Dictionary` to Info.plist. Under it, add key `key` and `secret` with values from Gimmie portal.
 - Build the project with Xcode
 
 ## Initialize
