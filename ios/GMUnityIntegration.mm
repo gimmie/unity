@@ -3,7 +3,7 @@
 
 void NativeIOSAnonymousLogin()
 {
-    [Gimmie loginWithGenerateID];
+    [[GMService sharedService] loginWithGenerateID];
 }
 
 void NativeIOSLogin(const char *username)
