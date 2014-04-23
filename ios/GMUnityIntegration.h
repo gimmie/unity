@@ -1,10 +1,10 @@
 extern "C" {
-    void AnonymousLogin();
-    void Login(const char *username);
-    void Logout();
+    void NativeIOSAnonymousLogin();
+    void NativeIOSLogin(const char *username);
+    void NativeIOSLogout();
     bool NativeIOSIsAnonymous();
-    void UpdateGimmieCountry(const char *country);
-    void ShowGimmieRewards();
-    void BindGimmieNotification();
-    void TriggerEvent(const char *eventname);
+    void NativeIOSUpdateGimmieCountry(const char *country);
+    void NativeIOSShowGimmieRewards();
+    void NativeIOSBindGimmieNotification();
+    void NativeIOSTriggerEvent(const char *eventname);
 }
