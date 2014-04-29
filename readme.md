@@ -8,7 +8,7 @@ This repository is Gimmie files for integrating Gimmie iOS/Android lib to Unity 
 - Create a binding class, you can use a basic one here: [GimmieBinding.cs](GimmieBinding.cs).
 - Modify AndroidManifest.xml to include all the Gimmie declarations. See [example here](android/AndroidManifest.xml).
 
-Sample project structures
+### Sample project structures
 
     Assets
         Plugins
@@ -17,8 +17,18 @@ Sample project structures
                 AndroidManifest.xml
                 GimmieBinding.cs
 
+### Guest user
+
 To handle guest user tapping on notification and show your login page, create a empty game object name `GimmieBinding` and add
 GimmieBinding.cs script to that object
+
+### Rewards Country
+
+Rewards in Gimmie catalog can target to specific country, to show rewards in target country, add below meta code to `AndroidManifest.xml` file 
+
+    <meta-data android:name="com.gimmie.data.default_country" android:value="<country code>" />
+
+Default country is `global` which means only rewards set to global will show in catalog.
 
 ## iOS
 
@@ -31,6 +41,10 @@ GimmieBinding.cs script to that object
  - libicucore.dylib
 - Add `Gimmie` type `Dictionary` to Info.plist. Under it, add key `key` and `secret` with values from Gimmie portal.
 - Build the project with Xcode
+
+### Rewards Country
+
+Add `country` to `Gimmie` Dictionary in Info.plist with country code as value for showing country rewards in catalog.
 
 ## Initialize
 
