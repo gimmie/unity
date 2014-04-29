@@ -4,7 +4,7 @@ This repository is Gimmie files for integrating Gimmie iOS/Android lib to Unity 
 
 ## Android
 
-- [Download plugin](http://gimmieworld.s3.amazonaws.com/sdk/gimmie_Android_SDK_1.5.4_Touchten.zip) and extract all files into `Assets/Plugins`
+- [Download plugin](http://gimmieworld.s3.amazonaws.com/sdk/gimmie_Android_SDK_1.5.7_Unity3.zip) and extract all files into `Assets/Plugins`
 - Create a binding class, you can use a basic one here: [GimmieBinding.cs](GimmieBinding.cs).
 - Modify AndroidManifest.xml to include all the Gimmie declarations. See [example here](android/AndroidManifest.xml).
 
@@ -16,6 +16,9 @@ Sample project structures
                 Gimmie_Android_SDK
                 AndroidManifest.xml
                 GimmieBinding.cs
+
+To handle guest user tapping on notification and show your login page, create a empty game object name `GimmieBinding` and add
+GimmieBinding.cs script to that object
 
 ## iOS
 
