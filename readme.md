@@ -37,7 +37,7 @@ GimmieBinding.cs script to that object
 Call the following to bind Gimmie to each new context, for example in Star():
 
     void Start() {
-        GimmieBinding.initGimmie();
+        GimmieBinding.InitGimmie();
     }
 
 After init Gimmie it will automatically login user with `guest:randomid` which is anonymous user. Anonymous user is the same as
