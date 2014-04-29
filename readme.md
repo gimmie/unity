@@ -56,6 +56,15 @@ To trigger event
 
     GimmieBinding.TriggerGimmieEvent("event_name");
 
+## Handle need login for guest user
+
+Guest user is generated user id prefix with `guest:`. This user can earn points and instant rewards but cannot claim or open the
+catalog. When they tap on notification, nothing will happen. 
+
+To allow them claim rewards and open catalog, implements login function by adding `GimmieNeedLogin` to any `MonoBehavior` that get 
+new user login from your services or any 3rd party and use that login to Gimmie by call `GimmieBinding.Login("newuserid")` for
+transfering points and rewards that user has earned while login as guest.
+
 ## Known Issues
 
 - Duplicated scribe library
