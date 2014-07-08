@@ -1,6 +1,6 @@
-# Gimmie for Unity
+# Gimmie with UI components for Unity 4.x
 
-This repository is Gimmie files for integrating Gimmie iOS/Android lib to Unity project.
+Integrating Gimmie with its UI components into Unity project targeting iOS/Android
 
 ## Android
 
@@ -24,7 +24,7 @@ GimmieBinding.cs script to that object
 
 ### Rewards Country
 
-Rewards in Gimmie catalog can target to specific country, to show rewards in target country, add below meta code to `AndroidManifest.xml` file 
+Rewards in Gimmie catalog can target to specific country, to show rewards in target country, add below meta code to `AndroidManifest.xml` file
 
     <meta-data android:name="com.gimmie.data.default_country" android:value="<country code>" />
 
@@ -73,9 +73,9 @@ To trigger event
 ## Handle need login for guest user
 
 Guest user is generated user id prefix with `guest:`. This user can earn points and instant rewards but cannot claim or open the
-catalog. When they tap on notification, nothing will happen. 
+catalog. When they tap on notification, nothing will happen.
 
-To allow them claim rewards and open catalog, implements login function by adding `GimmieNeedLogin` to any `MonoBehavior` that get 
+To allow them claim rewards and open catalog, implements login function by adding `GimmieNeedLogin` to any `MonoBehavior` that get
 new user login from your services or any 3rd party and use that login to Gimmie by call `GimmieBinding.Login("newuserid")` for
 transfering points and rewards that user has earned while login as guest.
 
@@ -101,4 +101,3 @@ In plugin folder, remove android-support-v4.jar file because other library alrea
         /path/in/game/gimmie_Android_SDK_Unity/res/values/gm__styles.xml:5: error: Error: No resource found that matches the given name: attr 'actionBarStyle'.
 
 Copy all res and jar files including ActionBar Sherlock and ViewPager in plugins folder to your games.
-

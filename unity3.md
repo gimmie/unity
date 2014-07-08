@@ -1,4 +1,5 @@
-Gimmie for Unity 3.5
+# Gimmie with UI components for Unity 3.x
+Integrating Gimmie with its UI components into Unity project targeting iOS/Android
 ## Android
 
 - Download [Gimmie SDK for Unity3](http://gimmieworld.s3.amazonaws.com/sdk/gimmie_Android_SDK_1.5.4_Unity3.zip)
