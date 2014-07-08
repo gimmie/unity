@@ -1,18 +1,18 @@
 #import "Gimmie.h"
 #import "GMUnityIntegration.h"
 
-void AnonymousLogin()
+void NativeIOSAnonymousLogin()
 {
-    [Gimmie loginWithGenerateID];
+    [[GMService sharedService] loginWithGenerateID];
 }
 
-void Login(const char *username)
+void NativeIOSLogin(const char *username)
 {
     NSString *user = [NSString stringWithUTF8String:username];
     [Gimmie login:user];
 }
 
-void Logout()
+void NativeIOSLogout()
 {
     [[GMService sharedService] logout];
 }
@@ -23,17 +23,17 @@ bool NativeIOSIsAnonymous()
     return [user hasPrefix:@"guest:"];
 }
 
-void UpdateGimmieCountry(const char *country)
+void NativeIOSUpdateGimmieCountry(const char *country)
 {
     [GMService sharedService].country = [NSString stringWithUTF8String: country];
 }
 
-void ShowGimmieRewards()
+void NativeIOSShowGimmieRewards()
 {
     [Gimmie showGimmieView];
 }
 
-void BindGimmieNotification() {
+void NativeIOSBindGimmieNotification() {
     [Gimmie start];
     [[NSNotificationCenter defaultCenter] addObserverForName:GMNeedLoginNotification
                                                       object:nil
@@ -43,7 +43,7 @@ void BindGimmieNotification() {
                                                   }];
 }
 
-void TriggerEvent(const char *eventname)
+void NativeIOSTriggerEvent(const char *eventname)
 {
     NSString *event = [NSString stringWithUTF8String:eventname];
     [Gimmie trigger:event];
