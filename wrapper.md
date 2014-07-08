@@ -5,9 +5,12 @@
 - InitGimmie() with key and secret, and then CallGimmie()
 
 ### Sample API call
+````csharp
     using Gimmie;
+    ...
     string profileEndpoint = "https://api.gimmieworld.com/1/profile.json";
     GimmieWrapper.InitGimmie("keykeykeykeykeykeykey", "secretsecretsecretsecret");
     GimmieWrapper.Login("awesomeUser");
     JSONObject j = GimmieWrapper.CallGimmie(profileEndpoint);
-    Debug.Log("from manager: "+ j["response"]["user"]["awarded_points"].n);
+    Debug.Log("JSON fields accessed: "+ j["response"]["user"]["awarded_points"].n);
+````
