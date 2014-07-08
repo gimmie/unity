@@ -23,3 +23,7 @@ Sample project structures
                 scribe-1.3.5.jar
                 tagsoup-1.2.1.jar
             Your-other-plugins/
+
+## iOS
+
+Same steps as [Unity 4.x](./unity4.md)
