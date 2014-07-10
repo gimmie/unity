@@ -4,7 +4,7 @@ Integrating Gimmie with its UI components into Unity project targeting iOS/Andro
 
 ## Android
 
-- [Download plugin](http://gimmieworld.s3.amazonaws.com/sdk/gimmie_Android_SDK_1.5.7_Unity3.zip) and extract all files into `Assets/Plugins`
+- [Download plugin](http://gimmieworld.s3.amazonaws.com/sdk/Gimmie-AndroidSDK-1.8.1-Unity.zip) and extract all files into `Assets/Plugins`
 - Create a binding class, you can use a basic one here: [GimmieBinding.cs](GimmieBinding.cs).
 - Modify AndroidManifest.xml to include all the Gimmie declarations. See [example here](android/AndroidManifest.xml).
 
@@ -34,7 +34,7 @@ Default country is `global` which means only rewards set to global will show in 
 
 - Building and export project from Unity
 - Download iOS integration files([GMUnityIntegration.h](ios/GMUnityIntegration.h) and [GMUnityIntegration.mm](ios/GMUnityIntegration.mm)) and put in exported project
-- [Download Gimmie iOS SDK](http://gimmieworld.s3.amazonaws.com/sdk/gimmie_iOS_SDK_2.3.3.zip) and extract into exported project.
+- [Download Gimmie iOS SDK](http://gimmieworld.s3.amazonaws.com/sdk/gimmie-ios-latest.zip) and extract into exported project.
 - Add this framework in build phase
  - CoreTelephony.framework
  - Security.framework

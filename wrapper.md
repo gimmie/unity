@@ -1,6 +1,6 @@
 # Wrapper to call APIs directly
 
-- [Add the wrapper files](./Wrapper) into `Assets/Plugins`
+- [Add the wrapper files](Wrapper/) into `Assets/Plugins`
 - Read the list of available [Gimmie APIs here](http://developer.gimmieworld.com/gimmie-api/).
 - InitGimmie() with key and secret, and then CallGimmie()
 
