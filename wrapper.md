@@ -5,10 +5,11 @@
 - InitGimmie() with key and secret, and then CallGimmie()
 
 ### Sample API call
-````csharp
+````c#
     using Gimmie;
     ...
     string profileEndpoint = "https://api.gimmieworld.com/1/profile.json";
+    // Key and Secret are from Gimmit portal.
     GimmieWrapper.InitGimmie("key", "secret");
     GimmieWrapper.Login("awesomeUser");
     JSONObject j = GimmieWrapper.CallGimmie(profileEndpoint);
