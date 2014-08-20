@@ -9,7 +9,7 @@
     using Gimmie;
     ...
     string profileEndpoint = "https://api.gimmieworld.com/1/profile.json";
-    GimmieWrapper.InitGimmie("keykeykeykeykeykeykey", "secretsecretsecretsecret");
+    GimmieWrapper.InitGimmie("key", "secret");
     GimmieWrapper.Login("awesomeUser");
     JSONObject j = GimmieWrapper.CallGimmie(profileEndpoint);
     Debug.Log("JSON fields accessed: "+ j["response"]["user"]["awarded_points"].n);
