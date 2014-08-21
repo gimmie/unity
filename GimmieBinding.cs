@@ -35,11 +35,11 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 
-		AndroidJavaClass gimmieComponent = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
-		gimmieComponent.CallStatic("registerUnityHandler");
+		AndroidJavaClass gimmieComponents = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
+		gimmieComponents.CallStatic("registerUnityHandler");
 
 		AndroidJavaObject componentInstance = gimmieComponents.CallStatic<AndroidJavaObject>("getInstance", activity);
-		AndroidJavaObject service = componentInstance.Call("getGimmie");
+		AndroidJavaObject service = componentInstance.Call<AndroidJavaObject>("getGimmie");
 
 		service.Call("updateContext", activity);
 		service.Call("login");
@@ -57,9 +57,9 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 
-		AndroidJavaClass gimmieComponent = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
+		AndroidJavaClass gimmieComponents = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
 		AndroidJavaObject componentInstance = gimmieComponents.CallStatic<AndroidJavaObject>("getInstance", activity);
-		AndroidJavaObject service = componentInstance.Call("getGimmie");
+		AndroidJavaObject service = componentInstance.Call<AndroidJavaObject>("getGimmie");
 
 		service.Call ("loginAndTransferFromGuest", user, "", "");
 		#endif
@@ -74,9 +74,9 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 
-		AndroidJavaClass gimmieComponent = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
+		AndroidJavaClass gimmieComponents = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
 		AndroidJavaObject componentInstance = gimmieComponents.CallStatic<AndroidJavaObject>("getInstance", activity);
-		AndroidJavaObject service = componentInstance.Call("getGimmie");
+		AndroidJavaObject service = componentInstance.Call<AndroidJavaObject>("getGimmie");
 
 		service.Call ("logout");
 		#endif
@@ -91,9 +91,9 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 
-		AndroidJavaClass gimmieComponent = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
+		AndroidJavaClass gimmieComponents = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
 		AndroidJavaObject componentInstance = gimmieComponents.CallStatic<AndroidJavaObject>("getInstance", activity);
-		AndroidJavaObject service = componentInstance.Call("getGimmie");
+		AndroidJavaObject service = componentInstance.Call<AndroidJavaObject>("getGimmie");
 
 		String user = service.Call<String> ("getUser");
 		return user.StartsWith("guest:", true, null);
@@ -109,9 +109,9 @@ public class GimmieBinding : MonoBehaviour {
 		AndroidJavaClass player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		AndroidJavaObject activity = player.GetStatic<AndroidJavaObject>("currentActivity");
 
-		AndroidJavaClass gimmieComponent = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
+		AndroidJavaClass gimmieComponents = new AndroidJavaClass("com.gimmie.components.GimmieComponents");
 		AndroidJavaObject componentInstance = gimmieComponents.CallStatic<AndroidJavaObject>("getInstance", activity);
-		AndroidJavaObject service = componentInstance.Call("getGimmie");
+		AndroidJavaObject service = componentInstance.Call<AndroidJavaObject>("getGimmie");
 		
 		service.Call ("setCountry", countryCode);
 		#endif
